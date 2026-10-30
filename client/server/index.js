@@ -5,6 +5,7 @@ import rateLimit from "express-rate-limit";
 import { GoogleGenAI } from "@google/genai";
 
 const app = express();
+app.set("trust proxy", 1);
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || "http://localhost:5173" }));
